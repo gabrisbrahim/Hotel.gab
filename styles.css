@@ -1,0 +1,706 @@
+/* ========================================
+   TABLE DES MATIÈRES
+   ========================================
+   1. RESET & BASE
+   2. HEADER & NAVIGATION
+   3. HERO SECTION
+   4. BUTTONS
+   5. SECTIONS GÉNÉRALES
+   6. SERVICES
+   7. CHAMBRES
+   8. CONTACT
+   9. FORMULAIRE DE CONTACT
+   10. PAGE ACCUEIL
+   11. PAGE HERO
+   12. MAP
+   13. FOOTER
+   14. ANIMATIONS
+   15. RESPONSIVE
+   ======================================== */
+
+
+/* ========================================
+   1. RESET & BASE
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    line-height: 1.7;
+    color: #2c3e50;
+    background-color: #fafafa;
+}
+
+
+/* ========================================
+   2. HEADER & NAVIGATION
+   ======================================== */
+header {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    padding: 1.2rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #d4af37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.nav-links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #d4af37;
+    transition: width 0.4s ease;
+}
+
+.nav-links a:hover {
+    color: #d4af37;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* ========================================
+   3. HERO SECTION
+   ======================================== */
+.hero {
+    background: linear-gradient(135deg, rgba(15, 32, 39, 0.8), rgba(44, 83, 100, 0.7)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 700"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23203a43;stop-opacity:1"/><stop offset="100%" style="stop-color:%232c5364;stop-opacity:1"/></linearGradient></defs><rect fill="url(%23grad1)" width="1400" height="700"/><circle fill="%230f2027" cx="200" cy="150" r="180" opacity="0.3"/><circle fill="%232c5364" cx="1100" cy="500" r="250" opacity="0.3"/><polygon points="700,100 800,300 600,300" fill="%23d4af37" opacity="0.1"/></svg>');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 80px;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1.5s ease;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+    letter-spacing: 4px;
+    color: #d4af37;
+}
+
+.hero-content p {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+
+/* ========================================
+   4. BUTTONS
+   ======================================== */
+.btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background: linear-gradient(135deg, #d4af37, #f4d03f);
+    color: #0f2027;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #f4d03f, #d4af37);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 35px rgba(212, 175, 55, 0.6);
+    border-color: #d4af37;
+}
+
+.btn-form {
+    margin-top: 1rem;
+    cursor: pointer;
+    border: none;
+    font-size: 1.1rem;
+}
+
+
+/* ========================================
+   5. SECTIONS GÉNÉRALES
+   ======================================== */
+.section {
+    padding: 6rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+    color: #0f2027;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, #d4af37, #f4d03f);
+    border-radius: 2px;
+}
+
+
+/*
+   6. SERVICES
+   */
+.services {
+    background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+}
+
+.service-card {
+    background: white;
+    padding: 0;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    border-color: #d4af37;
+}
+
+.service-icon {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+}
+
+.service-card-content {
+    padding: 2rem;
+}
+
+.service-card h3 {
+    color: #2c5364;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.service-card p {
+    color: #546e7a;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+
+/* 
+   7. CHAMBRES
+    */
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.room-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+    border: 3px solid transparent;
+}
+
+.room-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    border-color: #d4af37;
+}
+
+.room-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.room-card:hover .room-image {
+    transform: scale(1.1);
+}
+
+.room-info {
+    padding: 2rem;
+    background: linear-gradient(to bottom, white 0%, #f8f9fa 100%);
+}
+
+.room-info h3 {
+    color: #0f2027;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.room-info > p {
+    color: #546e7a;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.room-features {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding: 0;
+}
+
+.room-features li {
+    padding: 0.5rem 0;
+    color: #2c5364;
+    font-size: 0.95rem;
+}
+
+.room-price {
+    color: #d4af37;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 1.5rem 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ========================================
+   8. CONTACT
+   ======================================== */
+.contact {
+    background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+    color: white;
+}
+
+.contact .section-title {
+    color: white;
+}
+
+.contact .section-title::after {
+    background: linear-gradient(to right, #d4af37, #f4d03f);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    text-align: center;
+}
+
+.contact-item {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.4s ease;
+}
+
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-10px);
+    border-color: #d4af37;
+}
+
+.contact-item h3 {
+    color: #d4af37;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.contact-item p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+
+/* ========================================
+   9. FORMULAIRE DE CONTACT
+   ======================================== */
+.contact-form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    color: #0f2027;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+
+/* ========================================
+   10. PAGE ACCUEIL
+   ======================================== */
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2;
+    color: #546e7a;
+}
+
+.home-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.home-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+}
+
+.home-card:hover {
+    transform: translateY(-10px);
+    border-color: #d4af37;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.home-card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.home-card h3 {
+    color: #0f2027;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.home-card p {
+    color: #546e7a;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.card-link {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.card-link:hover {
+    color: #2c5364;
+}
+
+
+/* ========================================
+   11. PAGE HERO (pages internes)
+   ======================================== */
+.page-hero {
+    background: linear-gradient(135deg, rgba(15, 32, 39, 0.9), rgba(44, 83, 100, 0.8));
+    padding: 8rem 2rem 4rem;
+    text-align: center;
+    color: white;
+    margin-top: 80px;
+}
+
+.page-hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #d4af37;
+}
+
+.page-hero-content p {
+    font-size: 1.3rem;
+}
+
+
+/* ========================================
+   12. MAP
+   ======================================== */
+.map-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.map-placeholder {
+    background: linear-gradient(135deg, #2c5364 0%, #0f2027 100%);
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.map-placeholder p:first-child {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.map-placeholder p:nth-child(2) {
+    font-size: 1.8rem;
+    color: #d4af37;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+
+/* ========================================
+   13. FOOTER
+   ======================================== */
+footer {
+    background: #0a1612;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 1rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+
+/* ========================================
+   14. ANIMATIONS
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   15. RESPONSIVE
+   ======================================== */
+
+/* Tablettes et écrans moyens */
+@media (max-width: 968px) {
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.3rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    nav {
+        padding: 0 1.5rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .service-icon {
+        height: 180px;
+    }
+
+    .room-image {
+        height: 220px;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .section {
+        padding: 4rem 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 0.95rem;
+    }
+
+    .services-grid,
+    .rooms-grid,
+    .home-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .service-icon {
+        height: 200px;
+    }
+
+    .room-image {
+        height: 200px;
+    }
+
+    .contact-form-container {
+        padding: 2rem;
+    }
+
+    .page-hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .page-hero-content p {
+        font-size: 1.1rem;
+    }
+}
